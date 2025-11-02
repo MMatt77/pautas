@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pautas para el Diseño de Aulas Virtuales</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        
+        nav {
+            background: #f8f9fa;
+            padding: 20px;
+            border-bottom: 3px solid #667eea;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #667eea;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background: white;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        main {
+            padding: 40px;
+        }
+        
+        section {
+            margin-bottom: 50px;
+            animation: fadeIn 0.6s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        h2 {
+            color: #667eea;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #764ba2;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        h3 {
+            color: #764ba2;
+            font-size: 1.5rem;
+            margin: 25px 0 15px 0;
+        }
+        
+        .section-icon {
+            font-size: 2rem;
+        }
+        
+        .code-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow-x: auto;
+            position: relative;
+        }
+        
+        .code-box code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            display: block;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+        
+        .copy-btn:hover {
+            background: #764ba2;
+            transform: scale(1.05);
+        }
+        
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+        
+        .preview-box {
+            background: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .preview-label {
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .warning-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .success-box {
+            background: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        tr:hover {
+            background: #f5f5f5;
+        }
+        
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .accordion {
+            background: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .accordion:hover {
+            border-color: #667eea;
+        }
+        
+        .accordion-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .accordion-header:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            background: white;
+        }
+        
+        .accordion-content-inner {
+            padding: 20px;
+        }
+        
+        .accordion.active .accordion-content {
+            max-height: 2000px;
+        }
+        
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .accordion.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        strong {
+            color: #667eea;
+        }
+        
+        .tooltip-demo {
+            border-bottom: 2px dotted #229954;
+            color: #229954;
+            cursor: help;
+            position: relative;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            main {
+                padding: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav a {
+                display: block;
+                text-align: center;
+            }
+            
+            table {
+                font-size: 0.9rem;
+            }
+            
+            th, td {
+                padding: 10px;
+            }
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #667eea;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+        }
+        
+        .back-to-top:hover {
+            background: #764ba2;
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Pautas para el Diseño de Aulas Virtuales</h1>
+            <p>Guía completa para docentes - Recursos y mejores prácticas</p>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#generales">Pautas Generales</a></li>
+                <li><a href="#anexos">Anexos</a></li>
+                <li><a href="#banner">→ Banner</a></li>
+                <li><a href="#separadores">→ Separadores</a></li>
+                <li><a href="#desplegables">→ Desplegables</a></li>
+                <li><a href="#bocadillos">→ Bocadillos</a></li>
+                <li><a href="#escalas">→ Escalas</a></li>
+                <li><a href="#nota-concepto">→ Nota de Concepto</a></li>
+            </ul>
+        </nav>
+        
+        <main>
+            <!-- SECCIÓN GENERALES -->
+            <section id="generales">
+                <h2><span class="section-icon">📋</span> Pautas para el Diseño de Aulas Virtuales</h2>
+                
+                <p>Esta sección contiene las directrices fundamentales e institucionales que deben seguirse para mantener la uniformidad, calidad y coherencia en todas las aulas virtuales.</p>
+                
+                <!-- Banner de las materias -->
+                <div class="accordion" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        🎨 Banner de las materias
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <ul>
+                                <li><strong>Altura máxima:</strong> Todos los banners deben mantener una altura máxima de <strong>280 px</strong>.</li>
+                                <li><strong>Colores institucionales:</strong> Emplear únicamente colores <strong>grises y azules institucionales</strong> que respeten la identidad visual de la universidad.</li>
+                                <li><strong>Diseño responsive:</strong> El diseño de los banners debe seguir el código HTML (responsive) proporcionado en los anexos para asegurar replicabilidad y uniformidad.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Organización de la Sección General -->
+                <div class="accordion" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        🗂️ Organización de la Sección General
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <div class="info-box">
+                                <strong>🎯 Principio clave:</strong> Mantener una estructura minimalista de fácil navegación.
+                            </div>
+                            
+                            <h4>Elementos permitidos fuera de los mosaicos:</h4>
+                            <ul>
+                                <li>✅ Banner institucional</li>
+                                <li>✅ Foro de novedades</li>
+                                <li>✅ Pautas de acreditación de la materia</li>
+                            </ul>
+                            
+                            <div class="warning-box">
+                                <strong>⚠️ Importante:</strong> Evitemos sobrecargar la sección general con otros elementos.
+                            </div>
+                            
+                            <h4>Mosaico "Inicio" (obligatorio):</h4>
+                            <p>Debe existir un mosaico denominado <strong>"Inicio"</strong> con los siguientes ítems:</p>
+                            <ol>
+                                <li>📄 <strong>Información de la materia</strong></li>
+                                <li>👋 <strong>Foro de presentación</strong></li>
+                                <li>❓ <strong>Foro de consultas</strong></li>
+                                <li>🤖 <strong>Asistentes de IA propios de la cátedra</strong></li>
+                                <li>☕ <strong>Cafetería Virtual</strong></li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mosaicos de Parciales y AVS -->
+                <div class="accordion" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        📝 Mosaicos de Parciales y AVS
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <h4>Mosaico de Parciales:</h4>
+                            <div class="success-box">
+                                La sección de parciales debe estar <strong>claramente diferenciada en un mosaico específico</strong>, donde se agrupen todos los recursos y consignas vinculados a evaluaciones parciales.
+                            </div>
+                            
+                            <h4>Mosaico de AVS (Actividades Virtuales Sincrónicas):</h4>
+                            <div class="success-box">
+                                Las AVS deben estar organizadas en <strong>otro mosaico independiente</strong>, siguiendo la lógica de diseño institucional y facilitando la rápida identificación por parte de los estudiantes.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Organización de Recursos por Unidades -->
+                <div class="accordion" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        📚 Organización de Recursos por Unidades
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <p>Dentro de cada unidad, los recursos deben estar <strong>separados por etiquetas HTML</strong>, que permitan distinguir entre:</p>
+                            <ul>
+                                <li>📖 <strong>Materiales de lectura</strong></li>
+                                <li>💬 <strong>Foros de debate</strong></li>
+                                <li>✏️ <strong>Actividades de regularización</strong></li>
+                                <li>📝 <strong>Evaluaciones de unidad</strong> (si están presentes)</li>
+                            </ul>
+                            
+                            <div class="warning-box">
+                                <strong>⚠️ Importante:</strong> Se debe evitar mezclar recursos en una misma sección sin una separación adecuada, promoviendo claridad y secuencialidad en la navegación.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Uso de Materiales y Derechos de Autor -->
+                <div class="accordion" onclick="toggleAccordion(this)">
+                    <div class="accordion-header">
+                        ⚖️ Uso de Materiales y Derechos de Autor
+                        <span class="accordion-icon">▼</span>
+                    </div>
+                    <div class="accordion-content">
+                        <div class="accordion-content-inner">
+                            <div class="warning-box" style="background: #ffebee; border-left-color: #f44336;">
+                                <h4 style="color: #d32f2f; margin-top: 0;">⛔ PROHIBICIONES ESTRICTAS:</h4>
+                                <ul>
+                                    <li><strong>NO</strong> incluir libros completos en PDF sin permisos legales</li>
+                                    <li><strong>NO</strong> compartir materiales que infrinjan derechos de autor</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="success-box">
+                                <h4 style="margin-top: 0;">✅ BUENAS PRÁCTICAS:</h4>
+                                <p>Se priorizarán:</p>
+                                <ul>
+                                    <li>📑 <strong>Recursos licenciados</strong></li>
+                                    <li>✍️ <strong>Materiales propios</strong></li>
+                                    <li>🔍 <strong>Fuentes confiables</strong></li>
+                                </ul>
+                                <p style="margin-top: 15px;">Siguiendo de manera estricta la normativa de derechos de autor y propiedad intelectual institucional y nacional.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECCIÓN ANEXOS -->
+            <section id="anexos" style="margin-top: 60px;">
+                <h2 style="font-size: 2.5rem; text-align: center; color: #764ba2; border-bottom: 4px solid #667eea; padding-bottom: 20px; margin-bottom: 40px;">
+                    <span class="section-icon">📎</span> Anexos - Recursos y Ejemplos de Código
+                </h2>
+                
+                <p style="text-align: center; font-size: 1.1rem; color: #666; margin-bottom: 50px;">
+                    En esta sección encontrarás ejemplos de código HTML y recursos prácticos para implementar en tus aulas virtuales.
+                </p>
+            </section>
+            
+            <!-- SECCIÓN BANNER -->
+            <section id="banner">
+                <h2><span class="section-icon">🎨</span> Anexo 1: Banner</h2>
+                
+                <p>El banner es el encabezado visual de tu aula virtual. Incluye el nombre de la materia, información de docentes y una imagen representativa.</p>
+                
+                <div class="info-box">
+                    <strong>💡 Consejo:</strong> La imagen puede ser reemplazada por la de tu preferencia. Tamaño recomendado: <strong>225x212 px</strong>
+                </div>
+                
+                <div class="code-box">
+                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                    <code>&lt;div style="width: 100%; max-width: 100%; background: #d7dddb; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; padding: 12px 2vw; box-sizing: border-box; gap: 1vw; flex-wrap: wrap;"&gt;
+    &lt;!-- Contenido del banner --&gt;
+    &lt;div style="flex: 1 1 200px; text-align: center;"&gt;
+        &lt;h1 style="margin: 0; font-size: 2.4rem; color: #0a1931; font-family: tahoma, arial, helvetica, sans-serif; font-weight: bold;"&gt;Nombre de la materia&lt;/h1&gt;
+        &lt;p&gt;&lt;/p&gt;
+        &lt;div style="font-size: 1.1rem; color: rgb(40, 55, 71); text-align: left;"&gt;Docente titular: &lt;/div&gt;
+        &lt;div style="font-size: 1.1rem; color: rgb(40, 55, 71); text-align: left;"&gt;Docentes adjuntos: &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- Imagen derecha --&gt;
+    &lt;img class="img-fluid align-bottom" style="height: 120px; max-width: 24vw; min-width: 80px; object-fit: cover; border-radius: 8px; background: rgb(255, 255, 255); padding: 4px; box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 8px;" src="URL_DE_TU_IMAGEN" alt="Banner" width="281" height="136"&gt;
+&lt;/div&gt;</code>
+                </div>
+                
+                <div class="preview-box">
+                    <div class="preview-label">Vista Previa</div>
+                    <div style="width: 100%; background: #d7dddb; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; padding: 12px 2vw; box-sizing: border-box; gap: 1vw; flex-wrap: wrap;">
+                        <div style="flex: 1 1 200px; text-align: center;">
+                            <h1 style="margin: 0; font-size: 2rem; color: #0a1931; font-family: tahoma, arial, helvetica, sans-serif; font-weight: bold;">Nombre de la materia</h1>
+                            <div style="font-size: 1rem; color: rgb(40, 55, 71); text-align: left; margin-top: 10px;">Docente titular: [Nombre del docente]</div>
+                            <div style="font-size: 1rem; color: rgb(40, 55, 71); text-align: left;">Docentes adjuntos: [Nombres]</div>
+                        </div>
+                        <div style="height: 100px; width: 100px; background: #f0f0f0; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 2px dashed #999;">
+                            🖼️ Imagen
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECCIÓN SEPARADORES -->
+            <section id="separadores">
+                <h2><span class="section-icon">📑</span> Anexo 2: Separadores</h2>
+                
+                <p>Los separadores son etiquetas (áreas de texto) que utilizamos para diferenciar y jerarquizar recursos dentro de un mosaico.</p>
+                
+                <div class="code-box">
+                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                    <code>&lt;div style="background: #568181; border-radius: 8px; padding: 16px 32px 16px 60px; margin: 32px 0 24px 0; position: relative; min-height: 48px;"&gt;
+    &lt;!-- Detalle gráfico simulando líneas a la izquierda --&gt;
+    &lt;span style="position: absolute; left: 18px; top: 12px; height: 32px; width: 24px; opacity: 0.16;"&gt;
+        &lt;svg width="24" height="32" viewBox="0 0 24 32"&gt;
+            &lt;path d="M5,2 Q10,16 5,30" stroke="#fff" stroke-width="2" fill="none"&gt;&lt;/path&gt;
+            &lt;path d="M11,2 Q16,16 11,30" stroke="#fff" stroke-width="1" fill="none"&gt;&lt;/path&gt;
+            &lt;path d="M17,2 Q22,16 17,30" stroke="#fff" stroke-width="1" fill="none"&gt;&lt;/path&gt;
+        &lt;/svg&gt;
+    &lt;/span&gt;
+    &lt;span style="color: #fff; font-size: 1.5em; font-weight: bold; float: right;"&gt;Nombre del recurso&lt;/span&gt;
+&lt;/div&gt;</code>
+                </div>
+                
+                <div class="preview-box">
+                    <div class="preview-label">Vista Previa</div>
+                    <div style="background: #568181; border-radius: 8px; padding: 16px 32px 16px 60px; margin: 20px 0; position: relative; min-height: 48px;">
+                        <span style="position: absolute; left: 18px; top: 12px; height: 32px; width: 24px; opacity: 0.16;">
+                            <svg width="24" height="32" viewBox="0 0 24 32">
+                                <path d="M5,2 Q10,16 5,30" stroke="#fff" stroke-width="2" fill="none"></path>
+                                <path d="M11,2 Q16,16 11,30" stroke="#fff" stroke-width="1" fill="none"></path>
+                                <path d="M17,2 Q22,16 17,30" stroke="#fff" stroke-width="1" fill="none"></path>
+                            </svg>
+                        </span>
+                        <span style="color: #fff; font-size: 1.5em; font-weight: bold; float: right;">Nombre del recurso</span>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECCIÓN DESPLEGABLES -->
+            <section id="desplegables">
+                <h2><span class="section-icon">📂</span> Anexo 3: Desplegables</h2>
+                
+                <p>Podemos usar desplegables (o acordeones) para incluir pautas, explicaciones, etc., de una manera colapsada. Por ejemplo: hojas de rutas, pautas de evaluación, recursos adicionales como videos o podcasts.</p>
+                
+                <div class="code-box">
+                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                    <code>&lt;details style="background: #f4f6f7; border-left: 5px solid #2E86C1; padding: 16px; border-radius: 8px; margin-bottom: 15px;"&gt;
+    &lt;summary style="font-weight: bold; color: #2e86c1; font-size: 1.2em; cursor: pointer;"&gt;🗺️ Hoja de ruta de la Unidad 1 (haz clic para desplegar)&lt;/summary&gt;
+    &lt;div style="margin-top: 14px;"&gt;
+        &lt;p&gt;¡Te damos la bienvenida a la Unidad 1! Aquí tienes los &lt;strong&gt;primeros pasos&lt;/strong&gt; recomendados para aprovechar al máximo esta etapa:&lt;/p&gt;
+        &lt;ul&gt;
+            &lt;li&gt;📖 &lt;strong&gt;Lee los contenidos teóricos&lt;/strong&gt;: dedica un tiempo inicial a familiarizarte con los textos principales y materiales complementarios.&lt;/li&gt;
+            &lt;li&gt;🎬 &lt;strong&gt;Visualiza los videos de la unidad&lt;/strong&gt; y &lt;strong&gt;escucha los podcast&lt;/strong&gt; 🎧: enriquecen tu mirada y ofrecen ejemplos prácticos.&lt;/li&gt;
+            &lt;li&gt;📝 &lt;strong&gt;Realiza las actividades de regularización&lt;/strong&gt;:
+                &lt;ul&gt;
+                    &lt;li&gt;Son tres cuestionarios obligatorios de opción múltiple, cada uno disponible en fechas escalonadas:&lt;/li&gt;
+                    &lt;li&gt;• &lt;strong&gt;Primer cuestionario:&lt;/strong&gt; disponible desde &lt;strong&gt;día de mes de año&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;• &lt;strong&gt;Segundo cuestionario:&lt;/strong&gt; disponible desde &lt;strong&gt;día de mes de año&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;• &lt;strong&gt;Tercer cuestionario:&lt;/strong&gt; disponible desde &lt;strong&gt;día de mes de año&lt;/strong&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;strong&gt;Todos cierran el día de mes de año.&lt;/strong&gt; ¡No dejes para último momento la entrega!&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;💬 &lt;strong&gt;Participa activamente en el foro de debate&lt;/strong&gt;: este es el espacio más enriquecedor de la unidad. Aquí no solo plasmas conocimientos, sino que los intercambias, los enriqueces y aprendes a gestionarlos colectivamente. ¡Tu voz y tu mirada cuentan!&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;div style="background-color: #fcf3cf; border-left: 4px solid #F7DC6F; padding: 10px; margin: 15px 0;"&gt;
+            &lt;strong&gt;Recuerda:&lt;/strong&gt; Aprovecha cada recurso, comparte dudas y aprendizajes, y no temas equivocarte en el proceso. Estamos para acompañarte en cada paso 🌱.
+        &lt;/div&gt;
+        &lt;p&gt;&lt;em&gt;¡Te animamos a explorar la unidad, participar y disfrutar del aprendizaje! ✨&lt;/em&gt;&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/details&gt;</code>
+                </div>
+                
+                <div class="preview-box">
+                    <div class="preview-label">Vista Previa Interactiva</div>
+                    <div class="accordion" onclick="toggleAccordion(this)">
+                        <div class="accordion-header">
+                            🗺️ Hoja de ruta de la Unidad 1 (haz clic para desplegar)
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="accordion-content-inner">
+                                <p>¡Te damos la bienvenida a la Unidad 1! Aquí tienes los <strong>primeros pasos</strong> recomendados para aprovechar al máximo esta etapa:</p>
+                                <ul>
+                                    <li>📖 <strong>Lee los contenidos teóricos</strong>: dedica un tiempo inicial a familiarizarte con los textos principales y materiales complementarios.</li>
+                                    <li>🎬 <strong>Visualiza los videos de la unidad</strong> y <strong>escucha los podcast</strong> 🎧: enriquecen tu mirada y ofrecen ejemplos prácticos.</li>
+                                    <li>📝 <strong>Realiza las actividades de regularización</strong>:
+                                        <ul>
+                                            <li>Son tres cuestionarios obligatorios de opción múltiple, cada uno disponible en fechas escalonadas:</li>
+                                            <li>• <strong>Primer cuestionario:</strong> disponible desde <strong>día de mes de año</strong></li>
+                                            <li>• <strong>Segundo cuestionario:</strong> disponible desde <strong>día de mes de año</strong></li>
+                                            <li>• <strong>Tercer cuestionario:</strong> disponible desde <strong>día de mes de año</strong></li>
+                                            <li><strong>Todos cierran el día de mes de año.</strong> ¡No dejes para último momento la entrega!</li>
+                                        </ul>
+                                    </li>
+                                    <li>💬 <strong>Participa activamente en el foro de debate</strong>: este es el espacio más enriquecedor de la unidad. Aquí no solo plasmas conocimientos, sino que los intercambias, los enriqueces y aprendes a gestionarlos colectivamente. ¡Tu voz y tu mirada cuentan!</li>
+                                </ul>
+                                <div style="background-color: #fcf3cf; border-left: 4px solid #F7DC6F; padding: 10px; margin: 15px 0;">
+                                    <strong>Recuerda:</strong> Aprovecha cada recurso, comparte dudas y aprendizajes, y no temas equivocarte en el proceso. Estamos para acompañarte en cada paso 🌱.
+                                </div>
+                                <p><em>¡Te animamos a explorar la unidad, participar y disfrutar del aprendizaje! ✨</em></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- SECCIÓN BOCADILLOS -->
+            <section id="bocadillos">
+                <h2><span class="section-icon">💬</span> Anexo 4: Bocadillos (Tooltips)</h2>
+                
+                <p>Los bocadillos, en Moodle, son "pop up" que aparecen cuando deslizamos el mouse por arriba de una palabra o frase en un texto, ya sea en páginas, libros, foros, etc. Sirven para brindar definiciones inmediatas del término, sin necesidad de recurrir a un glosario.</p>
+                
+                <div class="info-box">
+                    <strong>💡 Consejo:</strong> Podemos configurarlos con la ayuda de una IA, la que nos generará un HTML simple con el que reemplazamos la palabra o frase en cuestión.
+                </div>
+                
+                <div class="code-box">
+                    <button class="copy-btn" onclick="copyCode(this)">📋 Copiar</button>
+                    <code>&lt;span style="border-bottom: 1px dotted #229954; color: #229954; cursor: help;" title="El Ciclo Virtuoso de Gestión del Conocimiento es un proceso circular donde la evaluación, organización, acción y aprendizaje crean una mejora continua del conocimiento organizacional."&gt;
+    Ciclo Virtuoso de Gestión del Conocimiento
+&lt;/span&gt;</code>
+                </div>
+                
+                <div class="preview-box">
+                    <div class="preview-label">Vista Previa</div>
+                    <p>En este curso estudiaremos el <span class="tooltip-demo" title="El Ciclo Virtuoso de Gestión del Conocimiento es un proceso circular donde la evaluación, organización, acción y aprendizaje crean una mejora continua del conocimiento organizacional.">Ciclo Virtuoso de Gestión del Conocimiento</span> y su aplicación práctica.</p>
+                    <p style="font-size: 0.9rem; color: #666; font-style: italic;">💡 Pasa el mouse sobre el texto verde para ver la definición</p>
+                </div>
+            </section>
+            
+            <!-- SECCIÓN ESCALAS -->
+            <section id="escalas">
+                <h2><span class="section-icon">📊</span> Anexo 5: Escalas de Calificación</h2>
+                
+                <p>Muchas veces elegimos escalas cualitativas para calificar actividades como foros, glosarios o tareas. Es importante tener en cuenta, si estas actividades son obligatorias, que deben tener su correspondencia numérica (cuantitativa) para poder promediar con un método cuantitativo.</p>
+                
+                <div class="warning-box">
+                    <strong>⚠️ Importante:</strong> La ordenanza 1622 (reglamento para tecnicaturas) establece que la escala cualitativa debe tener una equivalencia cuantitativa.
+                </div>
+                
+                <h3>Recomendaciones:</h3>
+                <ul>
+                    <li>Lo más probable es que no utilicemos una escala de 7 ítems para calificar, sino una de 3 o 4 como máximo.</li>
+                    <li>Sea cual sea el caso, la escala cualitativa debe tener una equivalencia cuantitativa, acorde a lo planteado con la ordenanza y la correlación entre número y alcance.</li>
+                    <li>Debe ser explicitado desde el inicio en el aula virtual.</li>
+                    <li>Es importante que dentro de una materia se mantenga la misma escala para todas las actividades.</li>
+                </ul>
+                
+                <div class="success-box">
+                    <strong>✅ Sugerencia:</strong> En caso de que consideren compleja esta forma de evaluación, sugerimos emplear siempre una escala numérica.
+                </div>
+                
+                <h3>Tabla de Equivalencias - Escala Cualitativa/Cuantitativa</h3>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nivel de desempeño</th>
+                            <th>Descripción</th>
+                            <th>Valor numérico referencial</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Sobresaliente</strong></td>
+                            <td>El estudiante demuestra una participación destacada, fundamentada y que enriquecen el intercambio con sus pares, haciendo aportes innovadores que superan el material y la consigna.</td>
+                            <td><strong>10 (diez)</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Distinguido</strong></td>
+                            <td>El estudiante demuestra una participación destacada, fundamentada y que enriquecen el intercambio con sus pares.</td>
+                            <td><strong>9 (nueve)</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Muy bueno</strong></td>
+                            <td>El estudiante participa de manera adecuada, responde a las consignas y demuestra comprensión del tema.</td>
+                            <td><strong>8 (ocho)</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bueno</strong></td>
+                            <td>El estudiante participa de manera adecuada, responde a las consignas y demuestra comprensión del tema, aunque sin mayor desarrollo o profundización.</td>
+                            <td><strong>7 (siete)</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Aprobado</strong></td>
+                            <td>El estudiante cumple con la participación mínima requerida, pero sus aportes son breves o meramente descriptivos, sin evidenciar análisis.</td>
+                            <td><strong>6 (seis)</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Insuficiente</strong></td>
+                            <td>La participación no cumple con las indicaciones y requisitos planteados en la consigna o son muy pobres.</td>
+                            <td><strong>4 (cuatro)</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sin participación</strong></td>
+                            <td>El estudiante no participa.</td>
+                            <td><strong>0 (cero)</strong> <em>Se tiene en cuenta para el cálculo del promedio.</em></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <!-- SECCIÓN NOTA DE CONCEPTO -->
+            <section id="nota-concepto">
+                <h2><span class="section-icon">📝</span> Anexo 6: Nota de Concepto</h2>
+                
+                <p>La nota de concepto puede generar confusión y controversia entre nuestros estudiantes.</p>
+                
+                <h3>Consideraciones Pedagógicas</h3>
+                <p>Pedagógicamente hablando, la nota de concepto puede abarcar muchos criterios, dependiendo si hablamos de educación a distancia o presencial (o combinada).</p>
+                
+                <div class="info-box">
+                    <strong>📍 Contexto:</strong> Dado que nos encontramos dentro de un entorno de Educación a Distancia, donde lo medible se remite a lo observable en la plataforma, mayormente a través de datos como accesos, cumplimiento de actividades, notas obtenidas y otros datos meramente cuantitativos, sugerimos basar esta nota de concepto con valores que podemos obtener de manera automática por medio de la plataforma.
+                </div>
+                
+                <h3>🎯 Actividades de Regularización</h3>
+                <p>Esto implica replantear nuestra forma de evaluar, lo que no significa devaluarla. Para ello, planteamos <strong>actividades de regularización</strong> (que igualan a la "asistencia presencial").</p>
+                
+                <div class="success-box">
+                    <h4>¿Qué son las actividades de regularización?</h4>
+                    <p>Son cuestionarios autogestivos, foros u otro tipo de recursos que nos posibilita la plataforma y que permiten al estudiante reflejar un acceso y participación sistemática a la materia.</p>
+                    <ul>
+                        <li>✅ Son actividades con una fecha de inicio y fin (escalonado)</li>
+                        <li>✅ Requieren la participación activa del estudiante</li>
+                        <li>✅ Implican ingresar y participar en la materia más allá de los parciales establecidos</li>
+                    </ul>
+                </div>
+                
+                <div class="warning-box">
+                    <h4>⚠️ Importante: Lo que NO puede incluirse</h4>
+                    <p>Entre estas actividades de regularización <strong>no pueden incluirse:</strong></p>
+                    <ul>
+                        <li>❌ Clases sincrónicas (ni su posterior visualización)</li>
+                        <li>❌ Recursos H5P</li>
+                        <li>❌ Recursos externos a la plataforma (Padlet, Mentimeter, etc.)</li>
+                        <li>❌ Cualquier otro recurso que no pueda ser registrado con confianza en la plataforma</li>
+                    </ul>
+                </div>
+                
+                <h3>📐 Ejemplo de Aplicación</h3>
+                <div class="code-box" style="background: #e8f5e9; border-left: 4px solid #4caf50;">
+                    <p style="font-size: 1.1rem; margin-bottom: 15px;"><strong>Cálculo de regularidad según Ordenanza 1622:</strong></p>
+                    <p>Si en nuestra materia planteamos <strong>9 actividades de regularización</strong>, el estudiante deberá cumplir y aprobar al menos <strong>7 de ellas</strong> para lograr la regularidad.</p>
+                    <p style="margin-top: 10px; padding: 10px; background: white; border-radius: 5px;">
+                        <strong>Fórmula:</strong> 7/9 = 77.7% ≈ <strong>75% requerido por ordenanza 1622</strong>
+                    </p>
+                </div>
+            </section>
+        </main>
+        
+        <footer>
+            <p>📚 Pautas para el Diseño de Aulas Virtuales</p>
+            <p style="margin-top: 10px; opacity: 0.8;">Material didáctico para docentes - Universidad Tecnológica Nacional</p>
+        </footer>
+    </div>
+    
+    <div class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        ↑
+    </div>
+    
+    <script>
+        // Función para copiar código
+        function copyCode(button) {
+            const codeBox = button.parentElement;
+            const code = codeBox.querySelector('code').textContent;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = button.textContent;
+                button.textContent = '✅ Copiado!';
+                button.style.background = '#4caf50';
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.background = '#667eea';
+                }, 2000);
+            }).catch(err => {
+                alert('Error al copiar el código');
+                console.error('Error:', err);
+            });
+        }
+        
+        // Función para acordeones
+        function toggleAccordion(element) {
+            element.classList.toggle('active');
+        }
+        
+        // Botón de volver arriba
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Smooth scroll para navegación
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Animación de entrada para secciones
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
