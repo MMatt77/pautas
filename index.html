@@ -28,8 +28,21 @@
             overflow: hidden;
         }
         
+        .logo-container {
+            text-align: center;
+            padding: 30px 20px 20px 20px;
+            background: white;
+        }
+        
+        .logo-container img {
+            max-width: 200px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2c5f8d 0%, #1a3a52 100%);
             color: white;
             padding: 40px;
             text-align: center;
@@ -49,7 +62,7 @@
         nav {
             background: #f8f9fa;
             padding: 20px;
-            border-bottom: 3px solid #667eea;
+            border-bottom: 3px solid #2c5f8d;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -65,7 +78,7 @@
         
         nav a {
             text-decoration: none;
-            color: #667eea;
+            color: #2c5f8d;
             padding: 10px 20px;
             border-radius: 25px;
             background: white;
@@ -75,7 +88,7 @@
         }
         
         nav a:hover {
-            background: #667eea;
+            background: #2c5f8d;
             color: white;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -102,18 +115,18 @@
         }
         
         h2 {
-            color: #667eea;
+            color: #2c5f8d;
             font-size: 2rem;
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 3px solid #764ba2;
+            border-bottom: 3px solid #5a7a99;
             display: flex;
             align-items: center;
             gap: 10px;
         }
         
         h3 {
-            color: #764ba2;
+            color: #5a7a99;
             font-size: 1.5rem;
             margin: 25px 0 15px 0;
         }
@@ -124,7 +137,7 @@
         
         .code-box {
             background: #f8f9fa;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid #2c5f8d;
             padding: 20px;
             border-radius: 8px;
             margin: 20px 0;
@@ -144,7 +157,7 @@
             position: absolute;
             top: 10px;
             right: 10px;
-            background: #667eea;
+            background: #2c5f8d;
             color: white;
             border: none;
             padding: 8px 15px;
@@ -155,7 +168,7 @@
         }
         
         .copy-btn:hover {
-            background: #764ba2;
+            background: #1a3a52;
             transform: scale(1.05);
         }
         
@@ -173,7 +186,7 @@
         }
         
         .preview-label {
-            background: #667eea;
+            background: #2c5f8d;
             color: white;
             padding: 5px 15px;
             border-radius: 5px;
@@ -217,7 +230,7 @@
         }
         
         th {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2c5f8d 0%, #1a3a52 100%);
             color: white;
             padding: 15px;
             text-align: left;
@@ -247,11 +260,11 @@
         }
         
         .accordion:hover {
-            border-color: #667eea;
+            border-color: #2c5f8d;
         }
         
         .accordion-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2c5f8d 0%, #1a3a52 100%);
             color: white;
             padding: 15px 20px;
             cursor: pointer;
@@ -263,7 +276,7 @@
         }
         
         .accordion-header:hover {
-            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            background: linear-gradient(135deg, #1a3a52 0%, #2c5f8d 100%);
         }
         
         .accordion-content {
@@ -299,7 +312,7 @@
         }
         
         strong {
-            color: #667eea;
+            color: #2c5f8d;
         }
         
         .tooltip-demo {
@@ -318,6 +331,10 @@
         }
         
         @media (max-width: 768px) {
+            .logo-container img {
+                max-width: 150px;
+            }
+            
             header h1 {
                 font-size: 1.8rem;
             }
@@ -348,7 +365,7 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: #667eea;
+            background: #2c5f8d;
             color: white;
             width: 50px;
             height: 50px;
@@ -368,13 +385,24 @@
         }
         
         .back-to-top:hover {
-            background: #764ba2;
+            background: #1a3a52;
             transform: translateY(-5px);
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="logo-container">
+            <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="100" fill="#C8102E"/>
+                <text x="100" y="80" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">Centro de</text>
+                <text x="100" y="110" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">e-Learning</text>
+                <text x="100" y="145" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">UTN.BA</text>
+                <circle cx="100" cy="165" r="15" fill="none" stroke="white" stroke-width="2"/>
+                <text x="100" y="172" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" text-anchor="middle">✱</text>
+            </svg>
+        </div>
+        
         <header>
             <h1>📚 Pautas para el Diseño de Aulas Virtuales</h1>
             <p>Guía completa para docentes - Recursos y mejores prácticas</p>
@@ -396,7 +424,7 @@
         <main>
             <!-- SECCIÓN GENERALES -->
             <section id="generales">
-                <h2><span class="section-icon">📋</span> Pautas para el Diseño de Aulas Virtuales</h2>
+                <h2><span class="section-icon">📋</span> Pautas TUCEMD para el Diseño de Aulas Virtuales</h2>
                 
                 <p>Esta sección contiene las directrices fundamentales e institucionales que deben seguirse para mantener la uniformidad, calidad y coherencia en todas las aulas virtuales.</p>
                 
@@ -530,7 +558,7 @@
             
             <!-- SECCIÓN ANEXOS -->
             <section id="anexos" style="margin-top: 60px;">
-                <h2 style="font-size: 2.5rem; text-align: center; color: #764ba2; border-bottom: 4px solid #667eea; padding-bottom: 20px; margin-bottom: 40px;">
+                <h2 style="font-size: 2.5rem; text-align: center; color: #5a7a99; border-bottom: 4px solid #2c5f8d; padding-bottom: 20px; margin-bottom: 40px;">
                     <span class="section-icon">📎</span> Anexos - Recursos y Ejemplos de Código
                 </h2>
                 
@@ -850,7 +878,7 @@
                 
                 setTimeout(() => {
                     button.textContent = originalText;
-                    button.style.background = '#667eea';
+                    button.style.background = '#2c5f8d';
                 }, 2000);
             }).catch(err => {
                 alert('Error al copiar el código');
